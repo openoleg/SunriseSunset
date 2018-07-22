@@ -23,29 +23,22 @@ public class DaylightRepositoryImpl implements DaylightRepository {
     }
 
     @Override
-    public Daylight getDaylight(float lat, float lng) {
-        Daylight daylight = null;
-        Call<DaylightResponseEntity> call = sunriseSunsetApi.getDaylight(lat, lng, null, null);
+    public Daylight getDaylight(float lat, float lng, String date) {
+        Daylight daylight;
+        Call<DaylightResponseEntity> call = sunriseSunsetApi.getDaylight(lat, lng, date, 1);
         try {
             Response<DaylightResponseEntity> response = call.execute();
-            switch (response.body().getStatusCode()) {
-                case "OK":
-                    try {
-                        daylight = EntityMapper.toDaylight(response.body().getDaylightEntity());
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case "INVALID_REQUEST":
-
-                case "INVALID_DATE":
-
-                case "UNKNOWN_ERROR":
-                    break;
+            if (response.body().getStatusCode().equals("OK")) {
+                try {
+                    daylight = EntityMapper.toDaylight(response.body().getDaylightEntity());
+                    return daylight;
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             e.printStackTrace();
         }
-        return daylight;
+        return null;
     }
 }

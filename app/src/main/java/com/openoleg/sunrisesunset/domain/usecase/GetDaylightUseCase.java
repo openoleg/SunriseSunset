@@ -4,6 +4,10 @@ import com.openoleg.sunrisesunset.domain.concurrency.MainThread;
 import com.openoleg.sunrisesunset.domain.model.Daylight;
 import com.openoleg.sunrisesunset.domain.repository.DaylightRepository;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import javax.inject.Inject;
 
 public class GetDaylightUseCase {
@@ -20,8 +24,10 @@ public class GetDaylightUseCase {
         this.mainThread = mainThread;
     }
 
-    public void run(float lat, float lng, GetDaylightUseCaseObserver observer) {
-        Daylight daylight = daylightRepository.getDaylight(lat, lng);
+    public void run(float lat, float lng, Date date, GetDaylightUseCaseObserver observer) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String dateISO = simpleDateFormat.format(date);
+        Daylight daylight = daylightRepository.getDaylight(lat, lng, dateISO);
         mainThread.post(() -> observer.onResult(daylight));
     }
 }
