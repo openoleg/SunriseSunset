@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="daylight_information_date">Дата</string>
+    <string name="daylight_information_set_location">Розташування</string>
+    <string name="daylight_information_set_date">Дата</string>
+
+    <string name="daylight_information_day">День</string>
+    <string name="daylight_information_sunrise">Схід сонця</string>
+    <string name="daylight_information_sunset">Захід сонця</string>
+    <string name="daylight_information_solar_noon">Сонячний полудень</string>
+    <string name="daylight_information_day_length">Тривалість дня</string>
+
+    <string name="daylight_information_twilight">Сутінки</string>
+    <string name="daylight_information_civil">Цивільні</string>
+    <string name="daylight_information_nautical">Морські</string>
+    <string name="daylight_information_astronomical">Астрономічні</string>
+</resources>

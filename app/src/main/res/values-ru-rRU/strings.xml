@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sunrise Sunset</string>
+    <string name="daylight_information_date">Дата</string>
+    <string name="daylight_information_day">День</string>
+    <string name="daylight_information_sunrise">Восход солнца</string>
+    <string name="daylight_information_sunset">Закат солнца</string>
+    <string name="daylight_information_solar_noon">Солнечный полдень</string>
+    <string name="daylight_information_day_length">Длительность дня</string>
+    <string name="daylight_information_twilight">Сумерки</string>
+    <string name="daylight_information_civil">Гражданские</string>
+    <string name="daylight_information_nautical">Морские</string>
+    <string name="daylight_information_set_location">Расположение</string>
+    <string name="daylight_information_set_date">Дата</string>
+    <string name="daylight_information_astronomical">Астрономические</string>
+</resources>

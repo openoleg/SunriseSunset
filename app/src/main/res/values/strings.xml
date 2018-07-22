@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Sunrise Sunset</string>
+    
+    <!-- Daylight -->
+    <string name="daylight_information_date">Date</string>
+    <string name="daylight_information_set_location">Set location</string>
+    <string name="daylight_information_set_date">Set date</string>
+
+    <string name="daylight_information_day">Day</string>
+    <string name="daylight_information_sunrise">Sunrise</string>
+    <string name="daylight_information_sunset">Sunset</string>
+    <string name="daylight_information_solar_noon">Solar noon</string>
+    <string name="daylight_information_day_length">Day length</string>
+
+    <string name="daylight_information_twilight">Twilight</string>
+    <string name="daylight_information_civil">Civil</string>
+    <string name="daylight_information_nautical">Nautical</string>
+    <string name="daylight_information_astronomical">Astronomical</string>
 </resources>
