@@ -1,11 +1,14 @@
 package com.openoleg.sunrisesunset.data.model;
 
+import android.util.Log;
+
 import com.openoleg.sunrisesunset.domain.model.Daylight;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class EntityMapper {
     public static Daylight toDaylight(DaylightEntity daylightEntity) throws ParseException {
@@ -26,13 +29,17 @@ public class EntityMapper {
         Date astronomicalTwilightBegin;
         Date astronomicalTwilightEnd;
 
+        Log.d("MAPPER", daylightEntity.getSunrise());
+
         if (daylightEntity.getDayLength().contains(":")) {
-            dateFormat = new SimpleDateFormat("hh:mm:ss a", Locale.getDefault());
+            dateFormat = new SimpleDateFormat("hh:mm:ss a", Locale.ENGLISH);
+            dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
             dayLength = daylightEntity.getDayLength();
 
         }
         else {
-            dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.getDefault());
+            dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.ENGLISH);
+            dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
             dayLength = convertDayLength(daylightEntity.getDayLength());
         }
 
@@ -57,6 +64,6 @@ public class EntityMapper {
         int hours = dayLengthInSeconds / 3600;
         int minutes = (dayLengthInSeconds % 3600) / 60;
         int seconds = dayLengthInSeconds % 60;
-        return String.format("%d, %02d, %02d", hours, minutes, seconds);
+        return String.format("%02d, %02d, %02d", hours, minutes, seconds);
     }
 }
