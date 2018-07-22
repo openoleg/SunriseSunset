@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.daylight.information.DaylightInformationFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/fragment_daylight_information_header_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/fragment_daylight_information_place_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="16dp"
+                    android:alpha="@dimen/alpha_active_unfocused_icon"
+                    android:src="@drawable/ic_place"
+                    app:layout_constraintBottom_toBottomOf="@id/fragment_daylight_information_country"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fragment_daylight_information_city" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/HeaderCardTitleTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_place_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="City" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_country"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:textAppearance="@style/HeaderCardCaptionTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_place_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_city"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Country" />
+
+                <View
+                    android:id="@+id/fragment_daylight_information_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorDivider"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_country"
+                    app:layout_constraintVertical_bias="0" />
+
+                <ImageView
+                    android:id="@+id/fragment_daylight_information_calendar_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="16dp"
+                    android:alpha="@dimen/alpha_active_unfocused_icon"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="@id/fragment_daylight_information_date"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fragment_daylight_information_date_title" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_date_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/daylight_information_date"
+                    android:textAppearance="@style/HeaderCardTitleTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_calendar_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_divider"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Date" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:textAppearance="@style/HeaderCardCaptionTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_calendar_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_date_title"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Date" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_set_location_button"
+                    style="@style/TextButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_margin="16dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/daylight_information_set_location"
+                    android:textAppearance="@style/TextButtonTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_date"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Set location" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_set_date_button"
+                    style="@style/TextButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/daylight_information_set_date"
+                    android:textAppearance="@style/TextButtonTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_set_location_button"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_date"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Set date" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/fragment_daylight_information_day_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_header_card"
+            app:layout_constraintVertical_bias="0.0">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/fragment_daylight_information_sun_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="16dp"
+                    android:alpha="@dimen/alpha_active_unfocused_icon"
+                    android:src="@drawable/ic_sun"
+                    app:layout_constraintBottom_toBottomOf="@id/fragment_daylight_information_sunrise"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fragment_daylight_information_day" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_day"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/daylight_information_day"
+                    android:textAppearance="@style/HeaderCardTitleTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_sun_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Day" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_sunrise"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/daylight_information_sunrise"
+                    android:textAppearance="@style/HeaderCardCaptionTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_sun_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_day"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Sunrise" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_sunset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/daylight_information_sunset"
+                    android:textAppearance="@style/HeaderCardCaptionTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_sun_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_sunrise"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Sunset" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_solar_noon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/daylight_information_solar_noon"
+                    android:textAppearance="@style/HeaderCardCaptionTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_sun_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_sunset"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Solar noon" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_day_length"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/daylight_information_day_length"
+                    android:textAppearance="@style/HeaderCardCaptionTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_sun_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_solar_noon"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Day length" />
+
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/fragment_daylight_information_night_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_day_card"
+            app:layout_constraintVertical_bias="0.0">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/fragment_daylight_information_moon_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="16dp"
+                    android:alpha="@dimen/alpha_active_unfocused_icon"
+                    android:src="@drawable/ic_moon"
+                    app:layout_constraintBottom_toBottomOf="@id/fragment_daylight_information_civil_twilight"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fragment_daylight_information_twilight" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_twilight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/daylight_information_twilight"
+                    android:textAppearance="@style/HeaderCardTitleTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_moon_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Twilight" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_civil_twilight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/daylight_information_civil"
+                    android:textAppearance="@style/HeaderCardCaptionTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_moon_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_twilight"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Civil" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_nautical_twilight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/daylight_information_nautical"
+                    android:textAppearance="@style/HeaderCardCaptionTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_moon_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_civil_twilight"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Nautical" />
+
+                <TextView
+                    android:id="@+id/fragment_daylight_information_astronomical_twilight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/daylight_information_astronomical"
+                    android:textAppearance="@style/HeaderCardCaptionTextAppearance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/fragment_daylight_information_moon_icon"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_daylight_information_nautical_twilight"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Astronomical" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

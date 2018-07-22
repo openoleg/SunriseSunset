@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="alpha_active_focused_icon">0.87</dimen>
+    <dimen name="alpha_active_unfocused_icon">0.54</dimen>
+    <dimen name="alpha_inactive_icon">0.38</dimen>
+</resources>

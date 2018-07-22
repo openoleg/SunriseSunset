@@ -2,7 +2,7 @@ package com.openoleg.sunrisesunset.di.component;
 
 import com.openoleg.sunrisesunset.di.module.DaylightModule;
 import com.openoleg.sunrisesunset.di.scope.DaylightScope;
-import com.openoleg.sunrisesunset.presentation.daylight.DaylightActivity;
+import com.openoleg.sunrisesunset.presentation.daylight.information.DaylightInformationFragment;
 
 import dagger.Subcomponent;
 
@@ -14,5 +14,5 @@ public interface DaylightComponent {
         DaylightComponent build();
     }
 
-    void inject(DaylightActivity daylightActivity);
+    void inject(DaylightInformationFragment daylightInformationFragment);
 }
