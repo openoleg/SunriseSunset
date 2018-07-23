@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Sunrise Sunset</string>
     <string name="daylight_information_date">Дата</string>
     <string name="daylight_information_set_location">Розташування</string>
     <string name="daylight_information_set_date">Дата</string>
