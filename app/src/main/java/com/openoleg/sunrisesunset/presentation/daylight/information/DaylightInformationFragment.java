@@ -222,9 +222,9 @@ public class DaylightInformationFragment extends Fragment implements DaylightInf
         setLocationTextButton.setClickable(false);
         setDateTextButton.setClickable(false);
         Snackbar snackbar = Snackbar.make(getView().findViewById(R.id.fragment_daylight_information_frame),
-                "No Internet",
+                R.string.daylight_information_no_internet,
                 Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction("Try Again!", view -> {
+        snackbar.setAction(R.string.daylight_information_try_again, view -> {
             presenter.onNoInternetConnectionSnackbarTryAgain();
         });
         snackbar.show();

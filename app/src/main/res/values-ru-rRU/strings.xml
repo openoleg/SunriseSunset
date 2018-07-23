@@ -13,4 +13,8 @@
     <string name="daylight_information_set_location">Расположение</string>
     <string name="daylight_information_set_date">Дата</string>
     <string name="daylight_information_astronomical">Астрономические</string>
+    <string name="daylight_information_city">Город</string>
+    <string name="daylight_information_country">Страна</string>
+    <string name="daylight_information_no_internet">Нет Интернета</string>
+    <string name="daylight_information_try_again">Повторить!</string>
 </resources>

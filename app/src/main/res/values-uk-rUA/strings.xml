@@ -14,4 +14,8 @@
     <string name="daylight_information_civil">Цивільні</string>
     <string name="daylight_information_nautical">Морські</string>
     <string name="daylight_information_astronomical">Астрономічні</string>
+    <string name="daylight_information_city">Місто</string>
+    <string name="daylight_information_country">Країна</string>
+    <string name="daylight_information_no_internet">Немає Інтернету</string>
+    <string name="daylight_information_try_again">Ще раз!</string>
 </resources>

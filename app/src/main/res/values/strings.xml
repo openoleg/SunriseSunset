@@ -2,6 +2,8 @@
     <string name="app_name">Sunrise Sunset</string>
     
     <!-- Daylight -->
+    <string name="daylight_information_city">City</string>
+    <string name="daylight_information_country">Country</string>
     <string name="daylight_information_date">Date</string>
     <string name="daylight_information_set_location">Set location</string>
     <string name="daylight_information_set_date">Set date</string>
@@ -16,4 +18,7 @@
     <string name="daylight_information_civil">Civil</string>
     <string name="daylight_information_nautical">Nautical</string>
     <string name="daylight_information_astronomical">Astronomical</string>
+
+    <string name="daylight_information_no_internet">No Internet</string>
+    <string name="daylight_information_try_again">Try Again!</string>
 </resources>
