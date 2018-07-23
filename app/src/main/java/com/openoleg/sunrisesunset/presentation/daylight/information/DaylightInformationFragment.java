@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -30,6 +34,7 @@ import com.openoleg.sunrisesunset.presentation.daylight.information.mvp.Daylight
 import com.openoleg.sunrisesunset.presentation.model.DaylightModel;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -204,6 +209,17 @@ public class DaylightInformationFragment extends Fragment implements DaylightInf
         };
         DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), listener, currentYear, currentMonth, currentDay);
         datePickerDialog.show();
+    }
+
+    @Override
+    public void displayNoInternetConnectionSnackbar() {
+        Snackbar snackbar = Snackbar.make(getView().findViewById(R.id.fragment_daylight_information_frame),
+                "No Internet",
+                Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction("Try Again!", view -> {
+            presenter.onNoInternetConnectionSnackbarTryAgain();
+        });
+        snackbar.show();
     }
 
     private void findAllViews(View view) {

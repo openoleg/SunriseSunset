@@ -3,6 +3,7 @@ package com.openoleg.sunrisesunset.presentation.daylight.information.mvp;
 import com.openoleg.sunrisesunset.domain.model.Daylight;
 import com.openoleg.sunrisesunset.domain.model.Location;
 import com.openoleg.sunrisesunset.domain.usecase.GetDaylightUseCase;
+import com.openoleg.sunrisesunset.domain.usecase.IsInternetConnectedUseCase;
 import com.openoleg.sunrisesunset.presentation.base.mvp.BasePresenter;
 import com.openoleg.sunrisesunset.presentation.model.ModelMapper;
 
@@ -14,15 +15,33 @@ import javax.inject.Inject;
 public class DaylightInformationPresenter extends BasePresenter<DaylightInformationContract.View> implements DaylightInformationContract.Presenter {
     private ExecutorService executorService;
     private GetDaylightUseCase getDaylightUseCase;
+    private IsInternetConnectedUseCase isInternetConnectedUseCase;
     private Location location;
     private Date date;
     private Daylight daylight;
+    private IsInternetConnectedUseCase.IsInternetConnectedObserver isInternetConnectedObserver;
 
     @Inject
-    public DaylightInformationPresenter(ExecutorService executorService, GetDaylightUseCase getDaylightUseCase) {
+    public DaylightInformationPresenter(ExecutorService executorService, GetDaylightUseCase getDaylightUseCase, IsInternetConnectedUseCase isInternetConnectedUseCase) {
         this.executorService = executorService;
         this.getDaylightUseCase = getDaylightUseCase;
+        this.isInternetConnectedUseCase = isInternetConnectedUseCase;
         date = new Date();
+        isInternetConnectedObserver = new IsInternetConnectedUseCase.IsInternetConnectedObserver() {
+            @Override
+            public void onConnected() {
+                if (view != null) {
+                    view.displayLocation();
+                }
+            }
+
+            @Override
+            public void onDisconnected() {
+                if (view != null) {
+                    view.displayNoInternetConnectionSnackbar();
+                }
+            }
+        };
     }
 
     @Override
@@ -34,7 +53,7 @@ public class DaylightInformationPresenter extends BasePresenter<DaylightInformat
                 view.displayDaylightInformation(ModelMapper.toDaylightModel(daylight, "HH:mm:ss"));
             }
             else {
-                view.displayLocation(); // View request location from places API and than call onLocationRetrieved
+                executorService.execute(() -> isInternetConnectedUseCase.run(isInternetConnectedObserver));
             }
             view.displayDate(date);
         }
@@ -80,5 +99,10 @@ public class DaylightInformationPresenter extends BasePresenter<DaylightInformat
             }
         };
         executorService.execute(() -> getDaylightUseCase.run(location.getLatitude(), location.getLongitude(), date, observer));
+    }
+
+    @Override
+    public void onNoInternetConnectionSnackbarTryAgain() {
+        executorService.execute(() -> isInternetConnectedUseCase.run(isInternetConnectedObserver));
     }
 }

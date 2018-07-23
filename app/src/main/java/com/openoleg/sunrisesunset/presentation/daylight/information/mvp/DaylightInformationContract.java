@@ -14,6 +14,7 @@ public interface DaylightInformationContract {
         void displayDaylightInformation(DaylightModel daylightModel);
         void displayPlacePicker();
         void displayDatePickerDialog();
+        void displayNoInternetConnectionSnackbar();
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
@@ -21,5 +22,6 @@ public interface DaylightInformationContract {
         void onDateRetrieved(Date date);
         void onSetLocationButtonPressed();
         void onSetDateButtonPressed();
+        void onNoInternetConnectionSnackbarTryAgain();
     }
 }
