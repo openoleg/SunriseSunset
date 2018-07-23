@@ -1,7 +1,5 @@
 package com.openoleg.sunrisesunset.data.model;
 
-import android.util.Log;
-
 import com.openoleg.sunrisesunset.domain.model.Daylight;
 
 import java.text.ParseException;
@@ -28,8 +26,6 @@ public class EntityMapper {
 
         Date astronomicalTwilightBegin;
         Date astronomicalTwilightEnd;
-
-        Log.d("MAPPER", daylightEntity.getSunrise());
 
         if (daylightEntity.getDayLength().contains(":")) {
             dateFormat = new SimpleDateFormat("hh:mm:ss a", Locale.ENGLISH);
