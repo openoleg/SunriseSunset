@@ -98,7 +98,9 @@ public class DaylightInformationPresenter extends BasePresenter<DaylightInformat
                 view.displayDaylightInformation(ModelMapper.toDaylightModel(daylight, "HH:mm:ss"));
             }
         };
-        executorService.execute(() -> getDaylightUseCase.run(location.getLatitude(), location.getLongitude(), date, observer));
+        if (location != null) {
+            executorService.execute(() -> getDaylightUseCase.run(location.getLatitude(), location.getLongitude(), date, observer));
+        }
     }
 
     @Override

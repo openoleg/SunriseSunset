@@ -69,6 +69,10 @@ public class DaylightInformationFragment extends Fragment implements DaylightInf
         View parentView = inflater.inflate(R.layout.fragment_daylight_information, container, false);
         SunriseSunsetApplication.getApplication().getDaylightComponent().inject(this);
         findAllViews(parentView);
+        if (!checkFineLocationPermission()) {
+            setLocationTextButton.setClickable(false);
+            setDateTextButton.setClickable(false);
+        }
         // Listeners
         setLocationTextButton.setOnClickListener(view -> presenter.onSetLocationButtonPressed());
         setDateTextButton.setOnClickListener(view -> presenter.onSetDateButtonPressed());
@@ -148,6 +152,8 @@ public class DaylightInformationFragment extends Fragment implements DaylightInf
 
     @Override
     public void displayLocation(Location location) {
+        setLocationTextButton.setClickable(true);
+        setDateTextButton.setClickable(true);
         cityTextView.setText(location.getCity());
         countryTextView.setText(location.getCountry());
     }
@@ -213,6 +219,8 @@ public class DaylightInformationFragment extends Fragment implements DaylightInf
 
     @Override
     public void displayNoInternetConnectionSnackbar() {
+        setLocationTextButton.setClickable(false);
+        setDateTextButton.setClickable(false);
         Snackbar snackbar = Snackbar.make(getView().findViewById(R.id.fragment_daylight_information_frame),
                 "No Internet",
                 Snackbar.LENGTH_INDEFINITE);
